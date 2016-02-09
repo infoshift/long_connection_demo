@@ -13,5 +13,7 @@ def api_hello():
 
 @app.route('/long_request')
 def api_long_request():
-    time.sleep(120)  # 2 minutes
+    for _ in xrange(120):
+        time.sleep(1)
+        print 'sleeping... %s' % _
     return jsonify({'message': 'hello world'})
